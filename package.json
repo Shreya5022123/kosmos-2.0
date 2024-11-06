@@ -1,11 +1,10 @@
 {
-  "name": "flip-verse",
+  "name": "Kosmos",
   "version": "0.0.1",
   "main": "app.js",
   "description": "A metaverse e-commerce webapp",
   "scripts": {
-    "start": "node app.js",
-    "build": "react-scripts build"
+    "start": "node app.js"
   },
   "engines": {
     "node": "20.x"
