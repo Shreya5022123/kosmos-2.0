@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kosmos | Virtual World</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Kavivanar"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      body {
+        font-family: Monospace;
+        background-color: white;
+        color: #fff;
+        margin: 0px;
+        overflow: hidden;
+        touch-action: none;
+      }
+
+      #message {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-family: "Kavivanar", san-serif;
+        font-size: 40px;
+        width: 80%;
+        max-width: 280px;
+        padding: 15px 15px 50px 15px;
+        text-align: center;
+        display: none;
+        align-content: center;
+        justify-content: center;
+        background-color: aliceblue;
+        border: medium solid #3d455c;
+        border-radius: 20px;
+        color: #3d455c;
+        z-index: 99;
+      }
+      #message_ok {
+        position: absolute;
+        bottom: 10px;
+        padding: 10px 20px 10px 20px;
+        font-family: sans-serif;
+        font-size: 20px;
+        background-color: #3d455c;
+        color: #fff;
+        border-radius: 8px;
+        border: medium solid #696882;
+      }
+      #chat {
+        position: absolute;
+        width: 100%;
+        height: 40px;
+        bottom: 0px;
+        transition: all 0.5s;
+      }
+      form {
+        background: #000;
+        padding: 3px;
+        width: 100%;
+      }
+      form input {
+        border: 0;
+        padding: 10px;
+        width: 88%;
+        margin-right: 0.5%;
+      }
+      form button {
+        width: 8%;
+        background: rgb(130, 224, 255);
+        border: none;
+        padding: 10px;
+      }
+
+      #msg-form {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      #leave-world-btn {
+        /* position: absolute;
+        top: 10px;
+        right: 10px; */
+        background-color: orange;
+        padding: 10px;
+        width: fit-content;
+        font-size: x-large;
+      }
+
+      #add-to-cart-btn {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 10%;
+        margin: 0 auto;
+        width: max-content;
+        height: max-content;
+        padding: 8px;
+        background-color: yellow;
+        font-size: x-large;
+        font-weight: bold;
+      }
+
+      #view-in-ar-btn {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 20%;
+        margin: 0 auto;
+        width: max-content;
+        height: max-content;
+        padding: 8px;
+        background-color: yellow;
+        font-size: x-large;
+        font-weight: bold;
+      }
+      #send-btn {
+        min-width: max-content;
+      }
+
+      .showcase {
+        display: none;
+      }
+
+      button {
+        cursor: pointer;
+      }
+      input:focus {
+        font-size: 16px;
+      }
+      .btns {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="message">
+      <p id="message_text"></p>
+      <button id="message_ok">OK</button>
+    </div>
+    <div id="chat" class="show">
+      <form id="msg-form" action="">
+        <input id="m" autocomplete="on" /><button id="send-btn">Send</button>
+      </form>
+    </div> -->
+
+    <button id="add-to-cart-btn" class="show"></button>
+    <button id="view-in-ar-btn" class="show">View in AR</button>
+
+    <div class="btns">
+      <div
+        class="header-user-actions"
+        style="display: flex; align-items: center; gap: 3px"
+      >
+        <span class="coin-count"></span>
+        <!-- <img
+          src="https://dictionary.cambridge.org/images/thumb/token_noun_004_2618.jpg?version=6.0.27"
+          width="40px"
+          style="display: inline"
+        /> -->
+      </div>
+      <button id="leave-world-btn">
+        <a href="/">Leave</a>
+      </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="libs/inflate.min.js"></script>
+    <script src="libs/FBXLoader.js"></script>
+    <script src="libs/Detector.js"></script>
+    <script src="libs/toon3d.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="world.js"></script>
+    <script>
+      let game = new Game();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kosmos | Order Success</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-main">
+      <div class="container">
+        <a href="/" class="header-logo"> Kosmos </a>
+      </div>
+    </header>
+
+    <div class="container order-success-container">
+      <h1>Order Placed Successfully!</h1>
+      <p>Thank you for your order. We will process it as soon as possible.</p>
+      <p>Your order details will be sent to your email.</p>
+      <button class="action-btn" onclick="gotoHome()">Return to Home</button>
+    </div>
+
+    <script>
+      function gotoHome() {
+        window.location.href = "/";
+      }
+    </script>
+  </body>
+</html>
