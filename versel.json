@@ -8,6 +8,14 @@
   ],
   "routes": [
     {
+      "src": "/(client|libs|v3)/(.*)",
+      "dest": "/$1/$2"
+    },
+    {
+      "src": "/(.*).html",
+      "dest": "/client/$1.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/server.js"
     }
