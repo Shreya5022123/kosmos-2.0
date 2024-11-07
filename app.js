@@ -40,24 +40,59 @@ app.get("/Almirah", function (req, res) {
   res.sendFile(__dirname + `/client/ARViews/almirah.html`);
 });
 
-// Socket.io connection handler
 io.sockets.on("connection", function (socket) {
-  // Handle socket.io events
-  // Your socket logic here...
+  socket.userData = { x: 0, y: 0, z: 0, heading: 0 }; //Default values;
+
+  console.log(`${socket.id} connected`);
+  socket.emit("setId", { id: socket.id });
+  socket.on("disconnect", function () {
+    console.log(`${socket.id} disconnected`);
+    socket.broadcast.emit("deletePlayer", { id: socket.id });
+  });
+
+  socket.on("init", function (data) {
+    console.log(`socket.init ${data.model}`);
+    socket.userData.model = data.model;
+    socket.userData.colour = data.colour;
+    socket.userData.x = data.x;
+    socket.userData.y = data.y;
+    socket.userData.z = data.z;
+    socket.userData.heading = data.h;
+    (socket.userData.pb = data.pb), (socket.userData.action = "Idle");
+  });
+
+  socket.on("update", function (data) {
+    socket.userData.x = data.x;
+    socket.userData.y = data.y;
+    socket.userData.z = data.z;
+    socket.userData.heading = data.h;
+    (socket.userData.pb = data.pb), (socket.userData.action = data.action);
+  });
+
+  socket.on("added to cart", function (data) {
+    socket.broadcast.emit("show added to cart", data);
+  });
+
+  socket.on("chat message", function (data) {
+    console.log(`chat message:${data.id} ${data.message}`);
+    io.to(data.id).emit("chat message", {
+      id: socket.id,
+      message: data.message,
+    });
+  });
 });
 
-// Listening on PORT (Not needed for Vercel serverless, but kept for local dev purposes)
 http.listen(PORT, function () {
   console.log("listening on *:2002");
 });
 
-// This setInterval logic is fine as long as it's needed for your real-time data updates
 setInterval(function () {
   const nsp = io.of("/");
   let pack = [];
 
   for (let id in io.sockets.sockets) {
     const socket = nsp.connected[id];
+    //Only push sockets that have been initialised
     if (socket.userData.model !== undefined) {
       pack.push({
         id: socket.id,
@@ -74,6 +109,3 @@ setInterval(function () {
   }
   if (pack.length > 0) io.emit("remoteData", pack);
 }, 40);
-
-// Export the app to be used by Vercel's serverless functions
-module.exports = app;
