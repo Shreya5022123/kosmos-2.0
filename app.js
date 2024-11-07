@@ -14,7 +14,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/client/index.html");
 });
 app.get("/world", function (req, res) {
-  res.sendFile(__dirname + "/client/world.html");
+  res.sendFile(__dirname + "/world.html");
 });
 app.get("/cart", function (req, res) {
   res.sendFile(__dirname + "/client/cart.html");
