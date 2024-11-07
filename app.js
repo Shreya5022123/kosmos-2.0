@@ -46,11 +46,6 @@ io.sockets.on("connection", function (socket) {
   // Your socket logic here...
 });
 
-// Listening on PORT (Not needed for Vercel serverless, but kept for local dev purposes)
-http.listen(PORT, function () {
-  console.log("listening on *:2002");
-});
-
 // This setInterval logic is fine as long as it's needed for your real-time data updates
 setInterval(function () {
   const nsp = io.of("/");
