@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  
-  <script src="https://www.paypal.com/sdk/js?client-id=ARrFAsWXJntkkB2Akj1K4Acy0VM-yTJtPfd0OUppyc1XByE1p2a9_0MsrFSRnY4vpmq2EfcdOPRhSV-N"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AV_fsWkurO2CirWjTtkAXDdQNuk3pNMliUx4aYDTOZcTyiFKPAHXm_R1KXjn7EZ_BE-HwHokQ47Qp6L0&currency=USD"></script>
   
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,6 +22,7 @@
             <ion-icon name="home-outline"></ion-icon>
           </button>
         </div>
+      </div>
       </div>
     </header>
 
@@ -71,22 +72,7 @@
       const placeOrderBtn = document.getElementById("place-order-btn");
       placeOrderBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        // Add your order processing logic here
-        // For demonstration purposes, we'll just display a toast notification
-        //Toastify({
-          //text: "Order placed successfully!",
-          //duration: 3000,
-          //close: true,
-          //gravity: "top",
-          //position: "right",
-          //backgroundColor: "#4CAF50",
-          //stopOnFocus: true,
-       // }).showToast();
-
-        // Redirect to order-success.html after 3 seconds
-        setTimeout(() => {
-          window.location.href = "order-success.html";
-        }, 9000);
+        
       });
     </script>
 
