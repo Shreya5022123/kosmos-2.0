@@ -291,7 +291,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .coin-count {
-  font-size: 26px;
+  font-size: 20px;
   color: var(--eerie-black);
 }
 
