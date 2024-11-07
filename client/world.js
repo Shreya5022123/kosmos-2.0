@@ -321,7 +321,7 @@ class Game {
       );
 
       loader.load(`${game.assetsPath}fbx/hoddie.fbx`, function (object) {
-        object.name = "Hoddie";
+        object.name = "Hoodie";
         object.price = "799";
         object.img = "hoddie";
 
@@ -1329,7 +1329,7 @@ function openLink(object) {
   console.log("Object name:", object.name);
 
   // Check for specific product names and open the correct URL
-  if (object.name === "Hoddie") {
+  if (object.name === "Hoodie") {
     window.open(`${base_url}/Hoddie`);
   } else if (object.name === "Chair") {
     window.open(`${base_url}/Chair`);
