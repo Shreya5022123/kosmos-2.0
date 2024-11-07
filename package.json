@@ -4,7 +4,7 @@
   "main": "app.js",
   "description": "A metaverse e-commerce webapp",
   "scripts": {
-    "start": "node ./api/app.js"
+    "start": "node app.js"
   },
   "engines": {
     "node": "20.x"
