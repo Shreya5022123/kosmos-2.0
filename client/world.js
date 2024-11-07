@@ -331,8 +331,8 @@ class Game {
           price: object.price,
           img: object.img,
         };
-        object.position.set(3500, 100, -1500);
-        object.scale.set(350, 350, 350);
+        object.position.set(3500, 50, -1000);
+        object.scale.set(200, 150, 200);
 
         object.speechBubble = new SpeechBubble(
           game,
