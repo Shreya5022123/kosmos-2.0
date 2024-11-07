@@ -279,7 +279,7 @@ class Game {
       });
 
       loader.load(
-        `${game.assetsPath}fbx/VendingMachine.fbx`,
+        `${game.assetsPath}fbx/almirah.fbx`,
         function (object) {
           object.name = "Mini Almirah";
           object.price = "1049";
@@ -443,7 +443,7 @@ class Game {
         game.scene.add(object);
       });
 
-      loader.load(`${game.assetsPath}fbx/shoe.fbx`, function (object) {
+      loader.load(`${game.assetsPath}fbx/sandal.fbx`, function (object) {
         object.name = "Women's Sandal";
         object.price = "890";
         object.img = "sandals";
@@ -1330,10 +1330,18 @@ function openLink(object) {
 
   // Check for specific product names and open the correct URL
   if (object.name === "Hoddie") {
-    window.open(`${base_url}/hoddie`);
+    window.open(`${base_url}/Hoddie`);
   } else if (object.name === "Chair") {
-    window.open(`${base_url}/chair`);
-  } else {
+    window.open(`${base_url}/Chair`);
+  } else if (object.name === "headphones") {
+    window.open(`${base_url}/Headphones`);
+  } else if (object.name === "Lamp") {
+    window.open(`${base_url}/Lamp`);
+  } else if (object.name === "Women's Sandal") {
+    window.open(`${base_url}/Sandal`);
+  } else if (object.name === "Mini Almirah") {
+    window.open(`${base_url}/Almirah`);
+  }else {
     console.warn("No URL defined for this product:", object.name);
   }
 }

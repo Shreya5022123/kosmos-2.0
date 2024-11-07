@@ -25,6 +25,18 @@ app.get("/Chair", function (req, res) {
 app.get("/Hoddie", function (req, res) {
   res.sendFile(__dirname + `/client/ARViews/hoddie.html`);
 });
+app.get("/Headphones", function (req, res) {
+  res.sendFile(__dirname + `/client/ARViews/headphones.html`);
+});
+app.get("/Lamp", function (req, res) {
+  res.sendFile(__dirname + `/client/ARViews/lamp.html`);
+});
+app.get("/Sandal", function (req, res) {
+  res.sendFile(__dirname + `/client/ARViews/sandal.html`);
+});
+app.get("/Almirah", function (req, res) {
+  res.sendFile(__dirname + `/client/ARViews/almirah.html`);
+});
 
 io.sockets.on("connection", function (socket) {
   socket.userData = { x: 0, y: 0, z: 0, heading: 0 }; //Default values;
