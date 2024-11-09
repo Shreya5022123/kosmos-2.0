@@ -807,12 +807,10 @@ class Player {
 
     if (options === undefined) {
       const people = [
-        "BeachBabe",
         "BusinessMan",
         "Doctor",
         "FireFighter",
         "Housewife",
-        "Prostitute",
         "Punk",
         "RiotCop",
         "Roadworker",
