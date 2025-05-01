@@ -1,4 +1,4 @@
-# FLIPVERSE
+# Kosmos
 
 ## To setup the project on your local machine
 
